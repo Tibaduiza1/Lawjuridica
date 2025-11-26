@@ -179,7 +179,6 @@
         .page-section {
             display: none;
             animation: fadeIn 0.8s ease;
-            padding-top: 140px;
             min-height: 100vh;
         }
 
@@ -280,13 +279,6 @@
             padding: 8rem 0 4rem;
             text-align: center;
             border-bottom: 3px solid var(--gold-flat);
-        }
-
-        #page-firm .page-header, 
-        #page-services .page-header,
-        #page-team .page-header,
-        #page-contact .page-header {
-            margin-top: -140px;
         }
 
         .split-layout {
@@ -532,12 +524,6 @@
             }
             .hero {
                 height: calc(100vh - 110px);
-            }
-            #page-firm .page-header, 
-            #page-services .page-header,
-            #page-team .page-header,
-            #page-contact .page-header {
-                margin-top: -110px;
             }
 
             .split-layout, .mvv-grid, .footer-grid, .testimonial-grid-full, .contact-layout, .clients-grid {
@@ -1049,14 +1035,28 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- LÓGICA DE NAVEGACIÓN (JAVASCRIPT) -->
+    <!-- LÓGICA DE NAVEGACIÓN (JAVASCRIPT CORREGIDO) -->
     <script>
+        // Función para calcular y aplicar padding-top correcto
+        function updateContentPadding() {
+            const header = document.querySelector('header');
+            const activeSection = document.querySelector('.page-section.active');
+            
+            if (header && activeSection) {
+                const headerHeight = header.offsetHeight; // Altura REAL del header
+                // Aplicar padding-top igual a la altura del header + 20px de margen
+                activeSection.style.paddingTop = (headerHeight + 20) + 'px';
+            }
+        }
+
         // Función para cambiar la sección activa
         function navigate(pageId) {
             // 1. Ocultar todas las secciones
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(section => {
                 section.classList.remove('active');
+                // Resetear padding-top inline para evitar conflictos
+                section.style.paddingTop = '';
             });
 
             // 2. Desactivar todos los links del menú
@@ -1066,7 +1066,10 @@
             });
 
             // 3. Mostrar la sección deseada
-            document.getElementById('page-' + pageId).classList.add('active');
+            const targetSection = document.getElementById('page-' + pageId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
 
             // 4. Activar el link correspondiente
             const activeLink = document.getElementById('nav-' + pageId);
@@ -1074,12 +1077,26 @@
 
             // 5. Scroll arriba suavemente
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // 6. Recalcular padding después de que se muestre la sección
+            setTimeout(updateContentPadding, 50);
         }
+
+        // Ejecutar al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            updateContentPadding();
+        });
+
+        // Recalcular cuando se redimensiona la ventana (rotación de móvil, etc.)
+        window.addEventListener('resize', updateContentPadding);
+
+        // Recalcular cuando la página se muestra después de estar en segundo plano
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                setTimeout(updateContentPadding, 100);
+            }
+        });
     </script>
 
 </body>
 </html>
-
-
-
-
