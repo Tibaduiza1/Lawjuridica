@@ -503,10 +503,17 @@
             align-items: center; justify-items: center;
         }
         .client-placeholder {
-            font-weight: bold; font-size: 1.2rem; color: #444; text-transform: uppercase;
-            transition: 0.3s; cursor: default;
+            font-weight: bold;
+    font-size: 1.2rem;
+    color: #444;
+    text-transform: uppercase;
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
         }
-        .client-placeholder:hover { color: var(--gold-flat); text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+        .client-placeholder:hover { ccolor: var(--gold-flat);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);}
 
         .testimonial-grid-full {
             display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem;
@@ -1033,11 +1040,25 @@
                     <p>Algunos de nuestros clientes corporativos.</p>
                 </div>
                 <div class="clients-grid">
-                    <div class="client-placeholder">GRUPO ÉXITO</div>
-                    <div class="client-placeholder">ECOPETROL</div>
-                    <div class="client-placeholder">BANCOLOMBIA</div>
-                    <div class="client-placeholder">ARGOS</div>
-                    <div class="client-placeholder">BAVARIA</div>
+                    <a href="https://www.grupoexito.com.co" target="_blank" class="client-placeholder">
+                GRUPO ÉXITO
+            </a>
+
+            <a href="https://www.ecopetrol.com.co" target="_blank" class="client-placeholder">
+                ECOPETROL
+            </a>
+
+            <a href="https://www.bancolombia.com" target="_blank" class="client-placeholder">
+                BANCOLOMBIA
+            </a>
+
+            <a href="https://www.argos.co" target="_blank" class="client-placeholder">
+                ARGOS
+            </a>
+
+            <a href="https://www.bavaria.co" target="_blank" class="client-placeholder">
+                BAVARIA
+            </a></div>
                 </div>
             </div>
         </div>
@@ -1283,6 +1304,7 @@
 
 </body>
 </html>
+
 
 
 
