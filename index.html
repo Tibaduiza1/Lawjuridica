@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="icon" type="image/x-icon" href="lawp2.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LAW JURÍDICA - Firma legal experta en Derecho Corporativo, Penal y Propiedad Horizontal. Más de 9 años blindando intereses en Colombia.">
-    <meta name="keywords" content="Abogados Bogotá, Derecho Corporativo, Propiedad Horizontal, Defensa Jurídica">
+    
+    <title>LAW JURÍDICA | Firma Legal</title>
+    
+    <meta name="description" content="LAW JURÍDICA - Firma legal experta en Derecho Corporativo, Propiedad Horizontal, Inmobiliario y Civil. Más de 9 años blindando intereses en Colombia.">
+    <meta name="keywords" content="Abogados Bogotá, Derecho Corporativo, Propiedad Horizontal, Recuperación de Cartera, Estrategia Legal">
     <meta name="author" content="LAW JURÍDICA">
     
     <meta property="og:title" content="LAW JURÍDICA | Defensa Inquebrantable">
-    <meta property="og:description" content="Estrategia legal con precisión. Expertos en derecho corporativo y litigios complejos.">
-    <meta property="og:image" content="Law.png"> <title>LAW JURÍDICA | Firma Legal</title>
-    <link rel="icon" type="image/x-icon" href="lawp2.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <meta property="og:description" content="Estrategia legal con precisión. Expertos en derecho corporativo, litigios complejos y PH.">
+    <meta property="og:image" content="Law.png"> <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ================= VARIABLES (CORPORATIVO DARK LUXURY) ================= */
+        /* --- VARIABLES DE DISEÑO (DARK LUXURY) --- */
         :root {
             --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
             --gold-flat: #d4af37;
@@ -24,15 +25,12 @@
             --black-card: #121212;
             --black-light: #1a1a1a;
             --text-white: #f0f0f0;
-            --text-grey: #b0b0b0; /* Ligeramente más claro para lectura */
+            --text-grey: #a0a0a0;
             --glass: rgba(255, 255, 255, 0.05);
-            --nav-height: 80px;
+            --nav-height: 80px; /* Definición de altura de navegación para padding */
         }
 
-        /* ================= RESET & BASICS ================= */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Montserrat', sans-serif;
@@ -44,33 +42,40 @@
         }
 
         h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
 
-        /* ================= UTILIDADES CSS ================= */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .text-center { text-align: center; }
-        .text-gold { color: var(--gold-flat); }
-        .text-grey { color: var(--text-grey); }
-        
-        .gold-gradient-text {
+        /* --- UTILIDADES VISUALES --- */
+        .gold-text {
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: bold;
         }
 
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-header h2 {
-            font-size: clamp(1.8rem, 5vw, 3rem);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-        .line-gold {
-            width: 80px; height: 3px; background: var(--gold-gradient); margin: 0 auto;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        /* Botones */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            margin-bottom: 1rem;
+            color: white;
+            line-height: 1.3;
+        }
+
+        .section-header .line {
+            width: 80px;
+            height: 3px;
+            background: var(--gold-gradient);
+            margin: 0 auto;
+        }
+
         .btn-gold {
             background: var(--gold-gradient);
             color: #1a1a1a;
@@ -80,9 +85,12 @@
             letter-spacing: 1px;
             border: none;
             cursor: pointer;
-            border-radius: 2px;
+            transition: 0.3s;
+            text-decoration: none;
             display: inline-block;
+            border-radius: 2px;
         }
+
         .btn-gold:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
@@ -98,228 +106,634 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
-        }
-        .btn-outline:hover {
-            background: rgba(212, 175, 55, 0.1);
-            color: white; border-color: white;
+            transition: 0.3s;
+            display: inline-block;
         }
 
-        /* ================= NAVEGACIÓN ================= */
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: white;
+            border-color: white;
+        }
+
+        /* --- NAVEGACIÓN --- */
         header {
-            position: fixed; width: 100%; top: 0; left: 0;
+            position: fixed;
+            width: 100%;
+            height: var(--nav-height);
             background: rgba(5, 5, 5, 0.95);
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
             z-index: 1000;
             backdrop-filter: blur(10px);
-            height: var(--nav-height);
             display: flex; align-items: center;
         }
 
         nav {
-            display: flex; justify-content: space-between; align-items: center; width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
 
         .logo {
-            display: flex; align-items: center; gap: 15px;
-            font-size: 1.3rem; font-weight: 700; color: white;
-            text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.3rem; /* Ajustado para mejor fit */
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
         }
-        .logo img { height: 45px; width: auto; }
 
-        .menu { display: flex; gap: 2rem; }
+        .logo img {
+            height: 45px; /* Ajustado para mejor fit */
+            width: auto;
+        }
+
+        .menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .menu li { cursor: pointer; }
+
         .menu a {
-            color: #ccc; font-size: 0.85rem; letter-spacing: 1.5px;
-            text-transform: uppercase; position: relative;
+            color: #ccc;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+            position: relative;
         }
-        .menu a:hover, .menu a.active { color: var(--gold-flat); }
+
+        .menu a:hover, .menu a.active {
+            color: var(--gold-flat);
+        }
+        
+        .menu a.active {
+            color: var(--gold-flat) !important; /* Fuerza el color activo */
+        }
+
         .menu a.active::after {
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 100%; height: 2px; background: var(--gold-flat);
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold-flat);
         }
-        .btn-contact-nav {
-            border: 1px solid var(--gold-flat); padding: 5px 15px; border-radius: 2px;
+        
+        .nav-contact-btn {
+            border: 1px solid var(--gold-flat); 
+            padding: 5px 15px; 
+            border-radius: 2px;
         }
-        .btn-contact-nav:hover { background: var(--gold-flat); color: black !important; }
+        .nav-contact-btn:hover {
+             background: var(--gold-flat); 
+             color: black !important;
+        }
 
-        /* Icono hamburguesa móvil */
-        .mobile-toggle { display: none; color: var(--gold-flat); font-size: 1.5rem; cursor: pointer; }
 
-        /* ================= SPA ANIMATIONS & LAYOUT ================= */
+        /* --- SISTEMA DE PÁGINAS (SPA) --- */
         .page-section {
             display: none;
+            animation: fadeIn 0.8s ease;
             min-height: 100vh;
-            padding-top: var(--nav-height); /* Padding automático */
-            animation: fadeIn 0.6s ease;
+            /* El padding-top se asigna dinámicamente con JS */
         }
-        .page-section.active { display: block; }
+
+        .page-section.active {
+            display: block;
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ================= HOME ================= */
+        /* --- PÁGINA: INICIO (HOME) --- */
         .hero {
-            min-height: calc(100vh - var(--nav-height));
-            display: flex; align-items: center;
-            background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.4)),
-                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
             padding: 4rem 0;
+            padding-top: calc(var(--nav-height) + 4rem); /* Asegura que el hero no se esconda */
         }
-        .hero-subtitle {
-            color: var(--gold-flat); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1rem; font-weight: 600;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
         }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
         .hero h1 {
-            font-size: clamp(2rem, 6vw, 3.8rem);
-            line-height: 1.1; margin-bottom: 1.5rem;
+            font-size: clamp(2rem, 8vw, 3.8rem); /* Ajuste de tamaño */
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
         }
+
         .trust-badges-container {
-            background: rgba(18, 18, 18, 0.95);
+            background: rgba(18, 18, 18, 0.9);
             border: 1px solid var(--gold-flat);
-            padding: 2rem; margin-top: 4rem;
-            border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .trust-badges { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; }
-        .badge h3 { color: var(--gold-flat); font-size: 2.2rem; margin-bottom: 0.2rem; }
-        .badge p { font-size: 0.8rem; text-transform: uppercase; color: var(--text-grey); letter-spacing: 1px; }
-
-        /* ================= SERVICIOS GRID (HOME) ================= */
-        .services-preview { background: var(--black-light); padding: 5rem 0; }
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;
-        }
-        .service-card-mini {
-            background: var(--black-card); padding: 3rem 2rem;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.4s; position: relative; overflow: hidden; cursor: pointer;
-        }
-        .service-card-mini:hover { background: #181818; transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.3); }
-        .service-card-mini i { font-size: 2.5rem; color: var(--gold-flat); margin-bottom: 1.5rem; }
-        .service-card-mini h3 { margin-bottom: 1rem; }
-
-        /* ================= LA FIRMA ================= */
-        .page-header {
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover; background-position: center;
-            padding: 6rem 0 3rem; text-align: center; border-bottom: 3px solid var(--gold-flat);
-        }
-        .split-layout {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 5rem 0;
-        }
-        .history-img { width: 100%; border-radius: 4px; box-shadow: 15px 15px 0px rgba(212, 175, 55, 0.1); }
-        
-        .mvv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 4rem 0; }
-        .mvv-card {
-            background: var(--black-card); padding: 2.5rem; border: 1px solid #333;
-            text-align: center; transition: 0.3s;
-        }
-        .mvv-card:hover { border-color: var(--gold-flat); }
-        .mvv-card i { font-size: 2rem; color: var(--gold-flat); margin-bottom: 1rem; }
-
-        .guarantee-box {
-            background: linear-gradient(45deg, #0f0f0f, #1a1a1a);
-            padding: 4rem 2rem; border: 1px solid var(--gold-flat);
-            text-align: center; margin: 4rem 0; position: relative;
-        }
-        .guarantee-seal {
-            position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
-            background: var(--gold-flat); color: black; padding: 8px 20px;
-            font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;
+            padding: 1.5rem 2rem;
+            margin-top: 4rem;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
         }
 
-        /* ================= SERVICIOS DETALLADOS (ACORDEÓN) ================= */
-        .services-vertical { display: flex; flex-direction: column; gap: 1rem; padding-bottom: 4rem; margin-top: 3rem; }
-        
-        .service-full-card {
-            background: var(--black-card);
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.3s ease;
-        }
-        .service-full-card.active { border-color: var(--gold-flat); background: #161616; }
-        
-        .service-header {
-            padding: 2rem; display: flex; align-items: center; cursor: pointer;
+        .trust-badges {
+            display: flex;
+            gap: 2rem;
+            text-align: center;
             justify-content: space-between;
         }
-        .service-title-group { display: flex; align-items: center; gap: 1.5rem; }
-        .service-title-group i { font-size: 2rem; color: var(--gold-flat); width: 40px; text-align: center; }
-        .service-title-group h3 { font-size: 1.3rem; margin: 0; color: #eee; }
-        .chevron { color: var(--gold-flat); transition: 0.3s; }
-        .service-full-card.active .chevron { transform: rotate(180deg); }
-        .service-full-card.active h3 { color: var(--gold-flat); }
 
-        .service-body {
-            max-height: 0; overflow: hidden; transition: max-height 0.5s ease;
-            padding: 0 2rem;
+        @media (max-width: 600px) {
+            .trust-badges {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
+            }
+            .trust-badges-container {
+                padding: 1.5rem;
+            }
         }
-        .service-body-inner { padding-bottom: 2rem; padding-left: calc(40px + 1.5rem); } /* Alinear con título */
-        .service-full-card.active .service-body { max-height: 500px; } /* Ajuste dinámico vía JS idealmente, pero CSS funciona para texto fijo */
 
-        /* ================= EQUIPO Y CLIENTES ================= */
-        .team-grid { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; padding: 4rem 0; }
-        .lawyer-card { width: 300px; background: var(--black-card); border: 1px solid #333; transition: 0.3s; }
-        .lawyer-card:hover { transform: translateY(-5px); border-color: #444; }
-        .lawyer-img { width: 100%; height: 320px; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
-        .lawyer-card:hover .lawyer-img { filter: grayscale(0%); }
-        .lawyer-info { padding: 1.5rem; text-align: center; }
+        .badge {
+            flex: 1;
+            padding: 0 1rem;
+        }
 
-        .clients-strip { background: #0a0a0a; padding: 3rem 0; border-block: 1px solid #222; }
-        .clients-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem; align-items: center; text-align: center;
+        .badge h3 { 
+            color: var(--gold-flat); 
+            font-size: 2.5rem;
+            margin-bottom: 0.2rem; 
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
         }
-        /* Marcadores de clientes para proteger legalidad */
-        .client-placeholder {
-            color: #444; font-weight: 700; font-size: 1.2rem; text-transform: uppercase;
-            transition: 0.3s; cursor: default;
+        .badge p { 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            color: var(--text-grey); 
+            letter-spacing: 1px;
+            line-height: 1.2;
         }
-        .client-placeholder:hover { color: var(--gold-flat); text-shadow: 0 0 10px rgba(212,175,55,0.2); }
-
-        /* ================= CONTACTO ================= */
-        .contact-layout { display: grid; grid-template-columns: 1fr; min-height: 80vh; }
-        .contact-container {
-            background: var(--black-light); padding: 4rem 2rem; display: flex; flex-direction: column; align-items: center;
-        }
-        .contact-card {
-            width: 100%; max-width: 600px; background: rgba(0,0,0,0.2);
-            border: 1px solid #333; padding: 1.5rem; margin-bottom: 1rem;
-            display: flex; align-items: center; gap: 1.5rem; transition: 0.3s;
-        }
-        .contact-card:hover { border-color: var(--gold-flat); transform: translateX(5px); }
-        .contact-card i { font-size: 1.5rem; color: var(--gold-flat); width: 30px; }
-        .contact-card h4 { font-size: 0.9rem; color: var(--text-grey); margin-bottom: 0.2rem; text-transform: uppercase; }
-        .contact-card p, .contact-card a { font-size: 1.1rem; color: white; font-weight: 500; }
         
+        /* Servicios en Home */
+        .services-grid .service-card {
+            background: var(--black-card);
+            padding: 3rem 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .services-grid .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+
+        /* --- PÁGINA: LA FIRMA --- */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            border-bottom: 3px solid var(--gold-flat);
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 5rem 0;
+        }
+
+        .history-img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 20px 20px 0px rgba(212, 175, 55, 0.1);
+        }
+
+        .mvv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .mvv-card {
+            background: var(--black-card);
+            padding: 2rem;
+            border: 1px solid #333;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .mvv-card:hover { border-color: var(--gold-flat); transform: translateY(-5px); }
+        .mvv-card i { font-size: 2.5rem; color: var(--gold-flat); margin-bottom: 1rem; }
+
+        .guarantee-box {
+            background: linear-gradient(45deg, #111, #1a1a1a);
+            padding: 4rem;
+            border: 1px solid var(--gold-flat);
+            text-align: center;
+            margin: 4rem 0;
+            position: relative;
+        }
+        .guarantee-seal {
+            position: absolute; top: -30px; left: 50%; transform: translateX(-50%);
+            background: var(--gold-flat); color: black; padding: 10px 20px;
+            font-weight: bold; text-transform: uppercase; letter-spacing: 2px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        /* --- SERVICIOS EN PÁGINA 1 (GRID ORIGINAL) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding-bottom: 5rem;
+        }
+        
+        .services-grid .service-card i {
+            font-size: 2.5rem; /* Ajuste de tamaño */
+            color: var(--gold-flat);
+            margin-bottom: 1.5rem;
+            opacity: 1;
+        }
+
+        /* --- PÁGINA: SERVICIOS (LISTA VERTICAL DESPLEGABLE - ACORDEÓN) --- */
+        .services-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding-bottom: 4rem;
+        }
+
+        .services-vertical .service-card {
+            width: 100%;
+            background: var(--black-card);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .services-vertical .service-card.active {
+            border-color: var(--gold-flat);
+            background: #161616;
+        }
+
+        .services-vertical .service-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .services-vertical .service-card::after {
+            content: none; /* Quitamos la línea de hover para el acordeón, el active es suficiente */
+        }
+        
+        .services-vertical .service-card:hover::after {
+            width: 0;
+        }
+
+        .service-toggle {
+            padding: 2.5rem 2rem;
+            background: none;
+            border: none;
+            color: white;
+            text-align: left;
+            cursor: pointer;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-toggle h3 {
+            font-size: 1.4rem;
+            margin: 0;
+            transition: color 0.3s ease;
+            padding-right: 1rem;
+        }
+        
+        .service-toggle i.fa-gavel,
+        .service-toggle i.fa-building,
+        .service-toggle i.fa-landmark,
+        .service-toggle i.fa-file-contract,
+        .service-toggle i.fa-users,
+        .service-toggle i.fa-copyright {
+            font-size: 2rem; /* Ajuste de icono */
+            color: var(--gold-flat);
+            margin-right: 1rem;
+        }
+        
+        .service-title-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .service-toggle i.fa-chevron-down {
+            color: var(--gold-flat);
+            font-size: 1.2rem;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.9;
+            flex-shrink: 0;
+        }
+
+        .services-vertical .service-card.active .service-toggle i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .services-vertical .service-card.active .service-toggle h3 {
+            color: var(--gold-flat);
+        }
+
+        .service-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+            padding: 0 2rem 0 2rem;
+        }
+
+        .service-content.active {
+            max-height: 800px; /* Suficiente para el contenido */
+            padding: 0 2rem 2.5rem 2rem;
+        }
+        
+        .service-content p {
+            padding-left: 3.5rem; /* Alinea el texto con el título ignorando el icono */
+        }
+        
+        .service-content a {
+            padding-left: 3.5rem;
+            display: block;
+            margin-top: 1rem;
+        }
+        
+        /* --- PÁGINA: EQUIPO Y TESTIMONIOS --- */
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            padding: 4rem 0;
+        }
+
+        .lawyer-card {
+            width: 300px;
+            background: var(--black-card);
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .lawyer-card:hover { transform: translateY(-5px); border-color: #444; }
+
+        .lawyer-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: 0.5s;
+        }
+
+        .lawyer-card:hover .lawyer-img { filter: grayscale(0%); }
+
+        .lawyer-info { padding: 1.5rem; text-align: center; }
+        .lawyer-info h3 { color: white; margin-bottom: 0.5rem; }
+        .lawyer-info p { color: var(--gold-flat); font-size: 0.9rem; text-transform: uppercase; }
+
+        .clients-strip {
+            background: #0a0a0a;
+            padding: 3rem 0;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+        .clients-grid {
+            display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem;
+            align-items: center; justify-items: center;
+        }
+        .client-placeholder {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #444;
+            text-transform: uppercase;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .client-placeholder:hover { color: var(--gold-flat);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);}
+
+        .testimonial-grid-full {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem;
+        }
+        .testi-item {
+            display: flex; gap: 1.5rem; background: var(--black-card); padding: 2rem;
+            border-left: 4px solid var(--gold-flat);
+        }
+        .testi-avatar {
+            width: 60px; height: 60px; border-radius: 50%; background: #333; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center; color: var(--gold-flat); font-size: 1.5rem;
+        }
+
+        /* --- PÁGINA: CONTACTO --- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            min-height: 80vh;
+        }
+        .contact-info {
+            background: var(--black-light);
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .contact-link-item {
+            background: rgba(0,0,0,0.3);
+            padding: 1.5rem;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link-item:hover {
+            border-color: var(--gold-flat);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .contact-link-item a {
+            color: var(--text-white);
+            text-decoration: none;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .contact-link-item a:hover {
+            color: var(--gold-flat);
+        }
+
+        .contact-link-item i {
+            font-size: 1.8rem;
+            color: var(--gold-flat);
+            min-width: 30px;
+        }
+
+        .contact-info h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            color: #ccc;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: black;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid #222;
+            margin-top: auto;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem;
+        }
+        .footer-logo { font-size: 1.5rem; color: white; font-family: 'Playfair Display'; margin-bottom: 1rem; }
+        .footer-links h4 { color: white; margin-bottom: 1.5rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: #888; text-decoration: none; transition: 0.3s; }
+        .footer-links a:hover { color: var(--gold-flat); }
+
+        /* WhatsApp */
         .whatsapp-float {
             position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
             background: #25D366; color: white; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 2000;
+            font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); z-index: 2000;
             transition: 0.3s;
         }
-        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
-        /* ================= FOOTER ================= */
-        footer { background: black; padding: 4rem 0 2rem; border-top: 1px solid #222; margin-top: auto; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-        .footer-links a { display: block; margin-bottom: 0.8rem; color: #888; font-size: 0.9rem; }
-        .footer-links a:hover { color: var(--gold-flat); padding-left: 5px; }
-
-        /* ================= RESPONSIVE ================= */
+        /* Responsive */
         @media (max-width: 900px) {
-            .mobile-toggle { display: block; }
-            .menu {
-                position: fixed; top: var(--nav-height); left: -100%; width: 100%; height: calc(100vh - var(--nav-height));
-                background: black; flex-direction: column; justify-content: center; align-items: center;
-                transition: 0.4s; gap: 2rem;
+            
+            nav { flex-direction: column; gap: 1rem; padding-top: 1rem; padding-bottom: 1rem; height: auto; }
+            header { height: auto; }
+            .page-section {
+                padding-top: 120px !important; /* Ajuste responsive de padding */
             }
-            .menu.active { left: 0; }
-            .split-layout { grid-template-columns: 1fr; gap: 2rem; }
-            .hero { text-align: center; justify-content: center; }
-            .hero-content { width: 100%; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
-            .service-title-group h3 { font-size: 1.1rem; }
-            .service-body-inner { padding-left: 0; }
+            .hero {
+                min-height: auto;
+            }
+
+            .split-layout, .mvv-grid, .footer-grid, .testimonial-grid-full, .clients-grid {
+                grid-template-columns: 1fr; gap: 2rem;
+            }
+            .clients-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            .menu { gap: 1rem; font-size: 0.8rem; flex-wrap: wrap; justify-content: center; }
+            .page-header { padding: 6rem 0 2rem; }
+            .hero h1 { 
+                font-size: 2.5rem;
+            }
+            .trust-badges {
+                justify-content: center;
+            }
+            
+            .contact-info {
+                padding: 3rem 2rem;
+            }
+            
+            .service-toggle {
+                padding: 2rem 1.5rem;
+            }
+
+            .service-content {
+                padding: 0 1.5rem 0 1.5rem;
+            }
+            
+            .service-content.active {
+                padding: 0 1.5rem 2rem 1.5rem;
+            }
+            
+            .service-content p, .service-content a {
+                padding-left: 2.5rem; /* Ajuste para móviles */
+            }
+        }
+
+        /* NUEVA MEDIA QUERY PARA MÓVILES PEQUEÑOS */
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem !important;
+                line-height: 1.3;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem !important;
+                line-height: 1.4;
+            }
+            
+            .trust-badges-container {
+                margin-top: 2rem !important;
+                padding: 1rem !important;
+            }
+            
+            .badge h3 {
+                font-size: 2rem !important;
+            }
+
+            .service-toggle h3 {
+                font-size: 1.1rem;
+            }
+            
+            .service-content p, .service-content a {
+                padding-left: 0; /* Quita el padding lateral en texto de acordeón en el móvil más pequeño */
+            }
         }
     </style>
 </head>
@@ -328,20 +742,16 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo" onclick="app.navigate('home')">
-                    <img src="Law.png" alt="Logo" onerror="this.style.display='none'"> <span class="gold-gradient-text">LAW JURÍDICA</span>
+                <div class="logo" onclick="navigate('home')">
+                    <img src="Law.png" alt="GJC Logo" onerror="this.style.display='none'">
+                    <span class="gold-text">LAW JURÍDICA</span>
                 </div>
-                
-                <div class="mobile-toggle" onclick="app.toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </div>
-
-                <ul class="menu" id="main-menu">
-                    <li><a href="#home" onclick="app.navigate('home', event)">Inicio</a></li>
-                    <li><a href="#firm" onclick="app.navigate('firm', event)">La Firma</a></li>
-                    <li><a href="#services" onclick="app.navigate('services', event)">Servicios</a></li>
-                    <li><a href="#team" onclick="app.navigate('team', event)">Equipo</a></li>
-                    <li><a href="#contact" onclick="app.navigate('contact', event)" class="btn-contact-nav">Contacto</a></li>
+                <ul class="menu">
+                    <li><a href="#home" onclick="navigate('home')" id="nav-home" class="active">Inicio</a></li>
+                    <li><a href="#firm" onclick="navigate('firm')" id="nav-firm">La Firma</a></li>
+                    <li><a href="#services" onclick="navigate('services')" id="nav-services">Servicios</a></li>
+                    <li><a href="#team" onclick="navigate('team')" id="nav-team">Equipo y Clientes</a></li>
+                    <li><a href="#contact" onclick="navigate('contact')" id="nav-contact" class="nav-contact-btn">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -350,14 +760,14 @@
     <section id="page-home" class="page-section active">
         <div class="hero">
             <div class="container hero-content">
-                <p class="hero-subtitle">Consultoría Jurídica</p>
-                <h1>Defensa <span class="gold-gradient-text">Inquebrantable</span><br>para su tranquilidad</h1>
-                <p class="text-grey" style="font-size: 1.2rem; margin-bottom: 2.5rem; max-width: 600px;">
-                    Más de 9 años blindando los intereses de personas y empresas. Estrategia legal con precisión y ética.
+                <p style="color: var(--gold-flat); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1rem; font-weight: 600;">Consultoría Jurídica</p>
+                <h1>Defensa <span class="gold-text">Inquebrantable</span> para su tranquilidad</h1>
+                <p style="color: #ddd; font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 600px;">
+                    Más de 9 años blindando los intereses de personas así como empresas muy influyentes del país. Estrategia legal con precisión.
                 </p>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; justify-content: md-start;">
-                    <button onclick="app.navigate('firm')" class="btn-gold">Conozca la Firma</button>
-                    <button onclick="app.navigate('services')" class="btn-outline">Nuestros Servicios</button>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="#firm" onclick="navigate('firm')" class="btn-gold">Conozca la Firma</a>
+                    <a href="#services" onclick="navigate('services')" class="btn-outline">Áreas de Servicio</a>
                 </div>
 
                 <div class="trust-badges-container">
@@ -371,35 +781,35 @@
                             <p>Casos Exitosos</p>
                         </div>
                         <div class="badge">
-                            <i class="fas fa-medal" style="color: var(--gold-flat); font-size: 2.2rem; margin-bottom: 5px;"></i>
-                            <p>Certificación ISO</p>
+                            <i class="fas fa-medal" style="color: var(--gold-flat); font-size: 2.5rem;"></i>
+                            <p>Certificación 9001</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="services-preview">
+        <div style="background: var(--black-light); padding: 5rem 0;">
             <div class="container">
                 <div class="section-header">
-                    <h2>Áreas de Especialización</h2>
-                    <div class="line-gold"></div>
+                    <h2>Nuestras Áreas de Especialización</h2>
+                    <div class="line"></div>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card-mini" onclick="app.navigate('services')">
+                    <div class="service-card" onclick="navigate('services')">
                         <i class="fas fa-gavel"></i>
-                        <h3>Derecho Comercial</h3>
-                        <p class="text-grey">Creación de empresas, reformas estatutarias y resolución de conflictos entre socios.</p>
+                        <h3>Derecho Comercial y Societario</h3>
+                        <p style="color: #888;">Diseño y acompañamiento en la creación, operación y transformación de empresas, así como en la resolución de disputas comerciales y societarias.</p>
                     </div>
-                    <div class="service-card-mini" onclick="app.navigate('services')">
+                    <div class="service-card" onclick="navigate('services')">
                         <i class="fas fa-building"></i>
-                        <h3>Propiedad Horizontal</h3>
-                        <p class="text-grey">Asesoría integral para conjuntos residenciales, cobro de cartera y reglamentos.</p>
+                        <h3>Administración de Propiedad Horizontal</h3>
+                        <p style="color: #888;">Acompañamiento jurídico integral para conjuntos residenciales y comerciales, garantizando una gestión transparente, eficiente y conforme a la ley.</p>
                     </div>
-                    <div class="service-card-mini" onclick="app.navigate('services')">
-                        <i class="fas fa-users"></i>
+                    <div class="service-card" onclick="navigate('services')">
+                        <i class="fas fa-users-cog"></i>
                         <h3>Derecho de Familia</h3>
-                        <p class="text-grey">Sucesiones, divorcios y custodia con un enfoque humano y conciliador.</p>
+                        <p style="color: #888;">Soluciones humanas y profesionales en procesos de divorcio, custodia, alimentos, sucesiones y demás asuntos familiares que requieren sensibilidad y claridad legal.</p>
                     </div>
                 </div>
             </div>
@@ -410,23 +820,30 @@
         <div class="page-header">
             <div class="container">
                 <h1>Nuestra Historia</h1>
-                <p class="text-grey">Trayectoria, ética y estrategia.</p>
+                <p style="max-width: 600px; margin: 1rem auto; color: #ccc;">Tu tranquilidad jurídica comienza aquí.</p>
             </div>
         </div>
 
         <div class="container">
             <div class="split-layout">
                 <div>
-                    <h2 style="margin-bottom: 1.5rem;">Del compromiso nació una firma, <span class="gold-gradient-text">de la experiencia, nuestra estrategia.</span></h2>
-                    <p class="text-grey" style="margin-bottom: 1.5rem;">
-                        LAW Jurídica nació en 2015 bajo el nombre Vivesbien Inmobiliaria, evolucionando en 2016 hacia LAW Jurídica e Inmobiliaria S.A.S. Nuestro emblema, el león, simboliza la sabiduría y la defensa férrea de los intereses de nuestros clientes.
+                    <h2 style="color: white; margin-bottom: 1.5rem; font-size: 2rem;">Del compromiso nació una firma, <span class="gold-text">de la experiencia, nuestra estrategia.</span></h2>
+                    <p style="margin-bottom: 1.5rem; color: #ccc;">
+                        LAW Jurídica nació del sueño de construir una firma sólida, humana y estratégica. Su primer capítulo comenzó en 2015 bajo el nombre Vivesbien Inmobiliaria. Un año después, en 2016, ese proyecto evolucionó y tomó la identidad con la que hoy es reconocida: LAW Jurídica e Inmobiliaria S.A.S. Desde sus inicios, la firma adoptó un símbolo que refleja su esencia: el león, emblema de sabiduría, lealtad y justicia. Estos valores no son un adorno gráfico, sino principios que guían cada decisión y cada caso que asume el equipo LAW.
                     </p>
-                    <p class="text-grey">
-                        Liderados por el Dr. Cristian León y la Dra. Claudia Vega Moreno, hemos consolidado una firma que combina la técnica jurídica con una visión empresarial moderna.
+                    <p style="margin-bottom: 1.5rem; color: #ccc;">
+                        Con el liderazgo de sus socios fundadores, Cristian León (Representante Legal) y Claudia Vega Moreno (Dirección Jurídica), LAW se ha consolidado como una firma que combina experiencia, estrategia y compromiso real con cada cliente. Su trabajo ha permitido que, año tras año, se atiendan más de 120 procesos en sus diferentes áreas de desempeño. El 9 de septiembre de 2025, la firma celebró su noveno aniversario, reafirmando su propósito: acompañar a empresas y personas con un servicio jurídico cercano, confiable y orientado a resultados.
                     </p>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 2rem;">
+                        <img src="sociofundador.jpg" style="width: 50px; border-radius: 50%;" alt="Firma" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=50&q=80'">
+                        <div>
+                            <p style="font-family: 'Playfair Display'; font-style: italic; font-size: 1.2rem; color: white;">Dr. Cristian León</p>
+                            <p style="font-size: 0.8rem; color: var(--gold-flat);">SOCIO FUNDADOR</p>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" alt="Oficina LAW" class="history-img">
+                    <img src="oficina.jpg" alt="Oficina" class="history-img" onerror="this.src='https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
                 </div>
             </div>
 
@@ -434,25 +851,25 @@
                 <div class="mvv-card">
                     <i class="fas fa-bullseye"></i>
                     <h3>Misión</h3>
-                    <p class="text-grey">Brindar seguridad jurídica absoluta mediante estrategias innovadoras.</p>
+                    <p style="color: #999;">Brindar seguridad jurídica absoluta mediante estrategias innovadoras y éticas que garanticen la continuidad y éxito de nuestros clientes.</p>
                 </div>
                 <div class="mvv-card">
                     <i class="fas fa-eye"></i>
                     <h3>Visión</h3>
-                    <p class="text-grey">Ser la firma de referencia en Colombia para litigios de alta complejidad.</p>
+                    <p style="color: #999;">Ser reconocidos internacionalmente como la firma de referencia en Colombia para litigios de alta complejidad y derecho corporativo.</p>
                 </div>
                 <div class="mvv-card">
                     <i class="fas fa-balance-scale"></i>
                     <h3>Valores</h3>
-                    <p class="text-grey">Integridad, excelencia técnica y lealtad absoluta.</p>
+                    <p style="color: #999;">Integridad inquebrantable, excelencia técnica, confidencialidad estricta y lealtad absoluta hacia el cliente.</p>
                 </div>
             </div>
 
             <div class="guarantee-box">
                 <div class="guarantee-seal">Garantía de Servicio</div>
-                <h2 style="margin-bottom: 1rem;">Compromiso de Confidencialidad</h2>
-                <p class="text-grey" style="max-width: 700px; margin: 0 auto;">
-                    Garantizamos por escrito la más estricta reserva sumarial. Entregamos informes quincenales y aseguramos la supervisión directa de los socios.
+                <h2 style="color: white; margin-bottom: 1rem;">Compromiso de Confidencialidad y Diligencia</h2>
+                <p style="max-width: 800px; margin: 0 auto; color: #ccc;">
+                    En LAW Jurídica, garantizamos por escrito la más estricta reserva sumarial y corporativa. Su información está blindada. Nos comprometemos a una comunicación transparente, entregando informes de avance quincenales y garantizando que su caso siempre será supervisado por un socio senior.
                 </p>
             </div>
         </div>
@@ -461,78 +878,156 @@
     <section id="page-services" class="page-section">
         <div class="page-header">
             <div class="container">
-                <h1>Portafolio de Servicios</h1>
-                <p class="text-grey">Soluciones jurídicas multidisciplinarias.</p>
+                <h1>Áreas de Trabajo</h1>
+                <p style="color: #ccc;">Soluciones jurídicas multidisciplinarias para desafíos complejos.</p>
             </div>
         </div>
 
-        <div class="container">
+        <div class="container" style="padding-top: 4rem;">
             <div class="services-vertical">
-                <div class="service-full-card" onclick="app.toggleService(this)">
-                    <div class="service-header">
+                <div class="service-card" data-service="comercial">
+                    <button class="service-toggle" onclick="toggleService(this.closest('.service-card'))">
                         <div class="service-title-group">
                             <i class="fas fa-gavel"></i>
                             <h3>Derecho Comercial y Societario</h3>
                         </div>
-                        <i class="fas fa-chevron-down chevron"></i>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-body-inner">
-                            <p class="text-grey">Asesoría en constitución de empresas, reformas estatutarias, acuerdos de accionistas y procesos de insolvencia.</p>
-                            <br>
-                            <a href="https://wa.me/573126411227" class="text-gold">Consultar caso <i class="fas fa-arrow-right"></i></a>
-                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="service-content">
+                        <p style="color: #999; margin-bottom: 1rem;">
+                            Asesoría estratégica en la creación, transformación y operación de sociedades conforme al Código de Comercio y las normas de la Superintendencia de Sociedades. Incluye constitución de empresas, elaboración de estatutos, reformas societarias, acuerdos entre socios, insolvencia empresarial y resolución de conflictos comerciales. LAW Jurídica combina visión empresarial con análisis jurídico para acompañar decisiones clave y mitigar riesgos corporativos.
+                        </p>
+                        <a href="https://wa.me/+573126411227?text=Hola,%20quiero%20información%20sobre%20Derecho%20Comercial%20y%20Societario" 
+                           style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem; font-weight: 600;" 
+                           target="_blank" rel="noopener noreferrer">
+                            Más información →
+                        </a>
                     </div>
                 </div>
-
-                <div class="service-full-card" onclick="app.toggleService(this)">
-                    <div class="service-header">
+                
+                <div class="service-card" data-service="horizontal">
+                    <button class="service-toggle" onclick="toggleService(this.closest('.service-card'))">
                         <div class="service-title-group">
                             <i class="fas fa-building"></i>
-                            <h3>Propiedad Horizontal</h3>
+                            <h3>Administración de Propiedad Horizontal</h3>
                         </div>
-                        <i class="fas fa-chevron-down chevron"></i>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-body-inner">
-                            <p class="text-grey">Acompañamiento a administradores y consejos. Revisión de reglamentos, gestión de cartera morosa y convivencia.</p>
-                            <br>
-                            <a href="https://wa.me/573126411227" class="text-gold">Consultar caso <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-full-card" onclick="app.toggleService(this)">
-                    <div class="service-header">
-                        <div class="service-title-group">
-                            <i class="fas fa-users"></i>
-                            <h3>Derecho de Familia</h3>
-                        </div>
-                        <i class="fas fa-chevron-down chevron"></i>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-body-inner">
-                            <p class="text-grey">Divorcios, sucesiones, capitulaciones y custodia. Manejamos su caso con la sensibilidad que requiere.</p>
-                            <br>
-                            <a href="https://wa.me/573126411227" class="text-gold">Consultar caso <i class="fas fa-arrow-right"></i></a>
-                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="service-content">
+                        <p style="color: #999; margin-bottom: 1rem;">
+                            Acompañamiento jurídico especializado a conjuntos y edificios bajo la Ley 675 de 2001, incluyendo revisión y actualización de reglamentos de propiedad horizontal, asesoría al consejo de administración, gestión de conflictos entre copropietarios, cobro de cuotas de administración y soporte jurídico para la toma de decisiones estratégicas. LAW Jurídica respalda a administradores y cuerpos directivos para garantizar orden, transparencia y cumplimiento normativo en la vida comunitaria.
+                        </p>
+                        <a href="https://wa.me/+573126411227?text=Hola,%20quiero%20información%20sobre%20Propiedad%20Horizontal" 
+                           style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem; font-weight: 600;" 
+                           target="_blank" rel="noopener noreferrer">
+                            Más información →
+                        </a>
                     </div>
                 </div>
-
-                <div class="service-full-card" onclick="app.toggleService(this)">
-                    <div class="service-header">
+                
+                <div class="service-card" data-service="inmobiliario">
+                    <button class="service-toggle" onclick="toggleService(this.closest('.service-card'))">
                         <div class="service-title-group">
                             <i class="fas fa-landmark"></i>
                             <h3>Derecho Inmobiliario</h3>
                         </div>
-                        <i class="fas fa-chevron-down chevron"></i>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="service-content">
+                        <p style="color: #999; margin-bottom: 1rem;">
+                            Asesoría legal completa en transacciones y litigios inmobiliarios: compraventas, promesas de contrato, arrendamientos, saneamiento de títulos, estudio de tradición, procesos de pertenencia y conflictos sobre tenencia y propiedad. Nuestra experiencia, sumada al origen inmobiliario de la firma (Vivesbien Inmobiliaria), permite ofrecer un acompañamiento sólido, preciso y orientado a proteger el patrimonio de nuestros clientes.
+                        </p>
+                        <a href="https://wa.me/+573126411227?text=Hola,%20quiero%20información%20sobre%20Derecho%20Inmobiliario" 
+                           style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem; font-weight: 600;" 
+                           target="_blank" rel="noopener noreferrer">
+                            Más información →
+                        </a>
                     </div>
-                    <div class="service-body">
-                        <div class="service-body-inner">
-                            <p class="text-grey">Estudio de títulos, contratos de arrendamiento, compraventa y procesos de restitución de inmuebles.</p>
-                            <br>
-                            <a href="https://wa.me/573126411227" class="text-gold">Consultar caso <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card" data-service="civil">
+                    <button class="service-toggle" onclick="toggleService(this.closest('.service-card'))">
+                        <div class="service-title-group">
+                            <i class="fas fa-file-contract"></i>
+                            <h3>Derecho Civil</h3>
                         </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="service-content">
+                        <p style="color: #999; margin-bottom: 1rem;">
+                            Asesoría en la prevención y resolución de conflictos derivados de obligaciones, contratos, responsabilidad civil, posesión y tenencia de bienes, de acuerdo con el Código Civil y normas complementarias. Representamos a nuestros clientes en procesos declarativos, ejecutivos y de responsabilidad, con estrategias basadas en análisis documental riguroso y atención directa de nuestros socios.
+                        </p>
+                        <a href="https://wa.me/+573126411227?text=Hola,%20quiero%20información%20sobre%20Derecho%20Civil" 
+                           style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem; font-weight: 600;" 
+                           target="_blank" rel="noopener noreferrer">
+                            Más información →
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="familia">
+                    <button class="service-toggle" onclick="toggleService(this.closest('.service-card'))">
+                        <div class="service-title-group">
+                            <i class="fas fa-users"></i>
+                            <h3>Derecho de Familia</h3>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="service-content">
+                        <p style="color: #999; margin-bottom: 1rem;">
+                            Acompañamiento humano y técnico en procesos como divorcios, custodia, fijación de alimentos, regulación de visitas, uniones maritales de hecho, capitulaciones y sucesiones. Actuamos ante comisarías, notarías y juzgados, asegurando que cada caso se gestione con sensibilidad, claridad y estricta observancia de los principios del Código de Infancia y Adolescencia, el Código Civil y las normas de derecho de familia vigentes.
+                        </p>
+                        <a href="https://wa.me/+573126411227?text=Hola,%20quiero%20información%20sobre%20Derecho%20de%20Familia" 
+                           style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem; font-weight: 600;" 
+                           target="_blank" rel="noopener noreferrer">
+                            Más información →
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="cartera">
+                    <button class="service-toggle" onclick="toggleService(this.closest('.service-card'))">
+                        <div class="service-title-group">
+                            <i class="fas fa-copyright"></i>
+                            <h3>Recuperación de Cartera</h3>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="service-content">
+                        <p style="color: #999; margin-bottom: 1rem;">
+                            Gestión jurídica integral para la recuperación de obligaciones en mora, desde la fase prejurídica (persuasiva) hasta la ejecución de procesos ejecutivos conforme al Código General del Proceso. LAW Jurídica implementa estrategias personalizadas que combinan análisis documental, negociación efectiva y acciones judiciales para reducir la cartera vencida y proteger la estabilidad financiera de empresas y conjuntos residenciales. Más de 120 procesos anuales respaldan nuestra experiencia.
+                        </p>
+                        <a href="https://wa.me/+573126411227?text=Hola,%20quiero%20información%20sobre%20Recuperación%20de%20Cartera" 
+                           style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem; font-weight: 600;" 
+                           target="_blank" rel="noopener noreferrer">
+                            Más información →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--black-light); padding: 4rem; margin-bottom: 4rem; border-radius: 5px;">
+                <h2 style="text-align: center; margin-bottom: 3rem; color: white;">Nuestro Método</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                    <div>
+                        <h1 style="color: var(--gold-flat); font-size: 3rem;">01</h1>
+                        <h4 style="color: white;">Diagnóstico</h4>
+                        <p style="color: #888; font-size: 0.9rem;">Análisis profundo de riesgos.</p>
+                    </div>
+                    <div>
+                        <h1 style="color: var(--gold-flat); font-size: 3rem;">02</h1>
+                        <h4 style="color: white;">Estrategia</h4>
+                        <p style="color: #888; font-size: 0.9rem;">Diseño de la ruta jurídica.</p>
+                    </div>
+                    <div>
+                        <h1 style="color: var(--gold-flat); font-size: 3rem;">03</h1>
+                        <h4 style="color: white;">Ejecución</h4>
+                        <p style="color: #888; font-size: 0.9rem;">Litigio o negociación agresiva.</p>
+                    </div>
+                    <div>
+                        <h1 style="color: var(--gold-flat); font-size: 3rem;">04</h1>
+                        <h4 style="color: white;">Resolución</h4>
+                        <p style="color: #888; font-size: 0.9rem;">Protección y cierre del caso.</p>
                     </div>
                 </div>
             </div>
@@ -543,26 +1038,34 @@
         <div class="page-header">
             <div class="container">
                 <h1>Nuestro Equipo</h1>
-                <p class="text-grey">Expertos comprometidos con su defensa.</p>
+                <p style="color: #ccc;">Abogados senior con trayectoria en las altas cortes y el sector privado.</p>
             </div>
         </div>
 
         <div class="container">
             <div class="team-grid">
                 <div class="lawyer-card">
-                    <img src="sociofundador.jpg" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80'" alt="Dr. Cristian León" class="lawyer-img">
+                    <img src="sociofundador.jpg" alt="Abogado" class="lawyer-img" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80'">
                     <div class="lawyer-info">
                         <h3>Dr. Cristian León</h3>
-                        <p class="text-gold" style="font-size: 0.9rem;">Socio Director</p>
-                        <p class="text-grey" style="font-size: 0.8rem;">Especialista en Derecho Corporativo</p>
+                        <p>Socio Director</p>
+                        <p style="color: #666; font-size: 0.8rem; margin-top: 5px;">Derecho Penal y Corporativo</p>
                     </div>
                 </div>
                 <div class="lawyer-card">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Dra. Claudia Vega" class="lawyer-img">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Abogada" class="lawyer-img">
                     <div class="lawyer-info">
                         <h3>Dra. Claudia Vega</h3>
-                        <p class="text-gold" style="font-size: 0.9rem;">Socia Fundadora</p>
-                        <p class="text-grey" style="font-size: 0.8rem;">Especialista en Derecho Laboral</p>
+                        <p>Socia Fundadora</p>
+                        <p style="color: #666; font-size: 0.8rem; margin-top: 5px;">Derecho Laboral y Comercial</p>
+                    </div>
+                </div>
+                <div class="lawyer-card">
+                    <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Abogado" class="lawyer-img">
+                    <div class="lawyer-info">
+                        <h3>Dr. Jorge Ramírez</h3>
+                        <p>Otro Cargo</p>
+                        <p style="color: #666; font-size: 0.8rem; margin-top: 5px;">Litigios y Arbitraje</p>
                     </div>
                 </div>
             </div>
@@ -570,14 +1073,66 @@
 
         <div class="clients-strip">
             <div class="container">
-                <div class="section-header" style="margin-bottom: 2rem;">
-                    <h2 style="font-size: 1.5rem;">Nuestros Clientes Corporativos</h2>
+                <div class="section-header">
+                    <h2>Confían en Nosotros</h2>
+                    <p>Algunos de nuestros clientes corporativos.</p>
                 </div>
                 <div class="clients-grid">
-                    <div class="client-placeholder">CONSTRUCTORA ALFA</div>
-                    <div class="client-placeholder">GRUPO COMERCIAL</div>
-                    <div class="client-placeholder">INVERSIONES S.A.S</div>
-                    <div class="client-placeholder">PROPIEDAD HORIZONTAL</div>
+                    <a href="https://www.grupoexito.com.co" target="_blank" class="client-placeholder">
+                        GRUPO ÉXITO
+                    </a>
+                    <a href="https://www.ecopetrol.com.co" target="_blank" class="client-placeholder">
+                        ECOPETROL
+                    </a>
+                    <a href="https://www.bancolombia.com" target="_blank" class="client-placeholder">
+                        BANCOLOMBIA
+                    </a>
+                    <a href="https://www.argos.co" target="_blank" class="client-placeholder">
+                        ARGOS
+                    </a>
+                    <a href="https://www.bavaria.co" target="_blank" class="client-placeholder">
+                        BAVARIA
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="padding: 5rem 2rem;">
+            <h2 style="text-align: center; color: white;">Lo que dicen nuestros clientes</h2>
+            <div class="line" style="margin: 1rem auto;"></div>
+            
+            <div class="testimonial-grid-full">
+                <div class="testi-item">
+                    <div class="testi-avatar"><i class="fas fa-user-tie"></i></div>
+                    <div>
+                        <p style="color: #ccc; font-style: italic; margin-bottom: 1rem;">"La firma logró desestimar una demanda millonaria contra nuestra empresa. Su conocimiento técnico y su manejo de la crisis fueron impecables."</p>
+                        <h4 style="color: white;">Roberto Gómez</h4>
+                        <p style="color: var(--gold-flat); font-size: 0.8rem;">CEO, Constructora Nacional</p>
+                    </div>
+                </div>
+                <div class="testi-item">
+                    <div class="testi-avatar"><i class="fas fa-user-tie"></i></div>
+                    <div>
+                        <p style="color: #ccc; font-style: italic; margin-bottom: 1rem;">"Profesionalismo y discreción absoluta. Nos han acompañado en nuestra expansión internacional blindando cada paso legal."</p>
+                        <h4 style="color: white;">Ana María Vélez</h4>
+                        <p style="color: var(--gold-flat); font-size: 0.8rem;">Dir. Legal, Tech Solutions</p>
+                    </div>
+                </div>
+                <div class="testi-item">
+                    <div class="testi-avatar"><i class="fas fa-user-tie"></i></div>
+                    <div>
+                        <p style="color: #ccc; font-style: italic; margin-bottom: 1rem;">"Excelente manejo de temas de propiedad intelectual. Recuperaron el control de nuestra marca en tiempo récord."</p>
+                        <h4 style="color: white;">Javier Méndez</h4>
+                        <p style="color: var(--gold-flat); font-size: 0.8rem;">Fundador, Innova Lab</p>
+                    </div>
+                </div>
+                <div class="testi-item">
+                    <div class="testi-avatar"><i class="fas fa-user-tie"></i></div>
+                    <div>
+                        <p style="color: #ccc; font-style: italic; margin-bottom: 1rem;">"Claridad total desde la primera consulta. No prometen lo imposible, pero logran resultados extraordinarios."</p>
+                        <h4 style="color: white;">Sofía Londoño</h4>
+                        <p style="color: var(--gold-flat); font-size: 0.8rem;">Gerente General, Retail Co.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -585,44 +1140,74 @@
 
     <section id="page-contact" class="page-section">
         <div class="contact-layout">
-            <div class="contact-container">
-                <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Contáctenos</h2>
-                <p class="text-grey text-center" style="max-width: 500px; margin-bottom: 3rem;">
-                    Nuestras oficinas están ubicadas en el corazón financiero de Bogotá. Atendemos con cita previa.
+            <div class="contact-info">
+                <h2>Información de Contacto</h2>
+                <p>
+                    Nuestras oficinas están ubicadas en el corazón financiero de Bogotá. Atendemos con cita previa para garantizar la privacidad de su consulta.
                 </p>
-
-                <div class="contact-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Dirección</h4>
-                        <p>Calle 93B #13-45, Torre Ecotek. Of 804<br>Bogotá, Colombia</p>
+                
+                <div class="contact-links">
+                    <div class="contact-link-item">
+                        <h4 style="color: var(--gold-flat); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-map-marker-alt"></i> Dirección
+                        </h4>
+                        <p>
+                            Calle 93B #13-45, Torre Ecotek<br>Piso 8, Oficina 804<br>Bogotá, Colombia
+                        </p>
+                    </div>
+                    
+                    <div class="contact-link-item">
+                        <h4 style="color: var(--gold-flat); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-phone"></i> Teléfonos
+                        </h4>
+                        <p>
+                            <a href="tel:+576017654321">+57 (601) 765 4321</a><br>
+                            <a href="tel:+573009876543">+57 300 987 6543</a>
+                        </p>
+                    </div>
+                    
+                    <div class="contact-link-item" style="background: rgba(37, 211, 102, 0.1); border-color: #25D366;">
+                        <h4 style="color: #25D366; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 10px;">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Corporativo
+                        </h4>
+                        <p>
+                            <a href="https://wa.me/573126411227?text=Hola,%20me%20gustaría%20agendar%20una%20consulta%20jurídica" 
+                               target="_blank" 
+                               style="color: #25D366; font-weight: 600;">
+                                +57 312 641 1227 (Click para escribir)
+                            </a>
+                        </p>
+                    </div>
+                    
+                    <div class="contact-link-item">
+                        <h4 style="color: var(--gold-flat); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-envelope"></i> Correos
+                        </h4>
+                        <p>
+                            <a href="mailto:contacto@lawjuridica.com">contacto@lawjuridica.com</a><br>
+                            <a href="mailto:notificaciones@lawjuridica.com">notificaciones@lawjuridica.com</a>
+                        </p>
+                    </div>
+                    
+                    <div class="contact-link-item">
+                        <h4 style="color: var(--gold-flat); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-clock"></i> Horario de Atención
+                        </h4>
+                        <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 1:00 PM</p>
                     </div>
                 </div>
-
-                <div class="contact-card">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h4>Llámenos</h4>
-                        <p><a href="tel:+576017654321">+57 (601) 765 4321</a></p>
-                    </div>
+                
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #333;">
+                    <p style="color: #ccc; margin-bottom: 1.5rem; font-style: italic;">
+                        "Para consultas urgentes, recomendamos contactarnos directamente por WhatsApp o llamada telefónica."
+                    </p>
+                    <a href="https://wa.me/573126411227?text=Hola,%20me%20gustaría%20agendar%20una%20consulta%20jurídica" 
+                       target="_blank" 
+                       class="btn-gold">
+                        <i class="fab fa-whatsapp" style="margin-right: 10px;"></i>
+                        Contactar por WhatsApp
+                    </a>
                 </div>
-
-                <div class="contact-card">
-                    <i class="fab fa-whatsapp"></i>
-                    <div>
-                        <h4>WhatsApp Directo</h4>
-                        <p><a href="https://wa.me/573126411227" class="text-gold">Iniciar chat ahora</a></p>
-                    </div>
-                </div>
-
-                <div class="contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>Correo Electrónico</h4>
-                        <p><a href="mailto:contacto@lawjuridica.com">contacto@lawjuridica.com</a></p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
@@ -631,99 +1216,142 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h3 style="font-family: 'Playfair Display'; margin-bottom: 1rem;">LAW JURÍDICA</h3>
-                    <p class="text-grey" style="font-size: 0.9rem;">
-                        Su tranquilidad legal, en buenas manos.
+                    <div class="footer-logo">LAW JURÍDICA</div>
+                    <p style="color: #666; font-size: 0.9rem; max-width: 300px;">
+                        Equipo jurídico con enfoque estratégico y atención cercana de sus fundadores. Tu tranquilidad legal, en buenas manos.
                     </p>
                 </div>
                 <div class="footer-links">
                     <h4>Navegación</h4>
-                    <a href="#home" onclick="app.navigate('home', event)">Inicio</a>
-                    <a href="#services" onclick="app.navigate('services', event)">Áreas de Práctica</a>
-                    <a href="#contact" onclick="app.navigate('contact', event)">Contacto</a>
+                    <ul>
+                        <li><a href="#home" onclick="navigate('home')">Inicio</a></li>
+                        <li><a href="#firm" onclick="navigate('firm')">La Firma</a></li>
+                        <li><a href="#services" onclick="navigate('services')">Áreas de Práctica</a></li>
+                        <li><a href="#team" onclick="navigate('team')">Equipo</a></li>
+                    </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Síganos</h4>
-                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <h4>Redes Sociales</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/law_juridica" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" style="margin-right: 8px;"></i> Instagram</a></li>
+                        <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" style="margin-right: 8px;"></i> Facebook</a></li>
+                        <li><a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" style="margin-right: 8px;"></i> TikTok</a></li>
+                        <li><a href="https://wa.me/573126411227" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="margin-right: 8px;"></i> WhatsApp</a></li>
+                        <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" style="margin-right: 8px;"></i> LinkedIn</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="text-center" style="border-top: 1px solid #222; padding-top: 2rem; color: #444; font-size: 0.8rem;">
+            <div style="text-align: center; color: #444; font-size: 0.8rem; border-top: 1px solid #222; padding-top: 2rem;">
                 &copy; 2025 LAW Jurídica e Inmobiliaria S.A.S. Todos los derechos reservados.
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/573126411227?text=Hola,%20quisiera%20agendar%20una%20consulta" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/573126411227?text=Hola,%20me%20gustaría%20agendar%20una%20consulta%20jurídica" 
+       target="_blank" 
+       class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        const app = {
-            // Inicialización
-            init: function() {
-                // Verificar hash en URL al cargar (ej: tudominio.com/#services)
-                const hash = window.location.hash.replace('#', '');
-                this.navigate(hash || 'home', null, false);
-
-                // Escuchar el botón "Atrás" del navegador
-                window.addEventListener('popstate', () => {
-                    const newHash = window.location.hash.replace('#', '');
-                    this.navigate(newHash || 'home', null, false);
-                });
-            },
-
-            // Función principal de navegación
-            navigate: function(pageId, event = null, pushHistory = true) {
-                if (event) event.preventDefault();
-                
-                // 1. Ocultar todas las secciones
-                document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
-                
-                // 2. Desactivar menú activo
-                document.querySelectorAll('.menu a').forEach(link => link.classList.remove('active'));
-
-                // 3. Validar si existe la sección, sino ir a home
-                const target = document.getElementById('page-' + pageId) || document.getElementById('page-home');
-                const targetId = target.id.replace('page-', '');
-
-                // 4. Activar sección y menú
-                target.classList.add('active');
-                
-                // Buscar el link que corresponde a esta sección
-                const activeLink = document.querySelector(`.menu a[href="#${targetId}"]`);
-                if (activeLink) activeLink.classList.add('active');
-
-                // 5. Cerrar menú móvil si está abierto
-                document.querySelector('.menu').classList.remove('active');
-
-                // 6. Actualizar URL (History API)
-                if (pushHistory) {
-                    history.pushState(null, null, `#${targetId}`);
-                }
-
-                // 7. Scroll arriba suave
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            },
-
-            // Toggle menú móvil
-            toggleMenu: function() {
-                document.getElementById('main-menu').classList.toggle('active');
-            },
-
-            // Acordeón de servicios
-            toggleService: function(element) {
-                // Cerrar otros
-                document.querySelectorAll('.service-full-card').forEach(card => {
-                    if (card !== element) card.classList.remove('active');
-                });
-                // Toggle actual
-                element.classList.toggle('active');
+        // Función para calcular y aplicar padding-top correcto
+        function updateContentPadding() {
+            const header = document.querySelector('header');
+            const activeSection = document.querySelector('.page-section.active');
+            
+            if (header && activeSection) {
+                const headerHeight = header.offsetHeight;
+                // Asegura un padding mínimo para que el contenido no quede debajo del menú
+                activeSection.style.paddingTop = (headerHeight + 20) + 'px'; 
             }
-        };
+        }
 
-        // Arrancar app cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', () => app.init());
+        // Función para cambiar la sección activa
+        function navigate(pageId) {
+            // 1. Desactivar todas las secciones
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+                section.style.paddingTop = '';
+            });
+
+            // 2. Desactivar el estado activo en la navegación
+            const links = document.querySelectorAll('.menu a');
+            links.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // 3. Activar la sección objetivo
+            const targetSection = document.getElementById('page-' + pageId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // 4. Activar el link de navegación objetivo
+            const activeLink = document.getElementById('nav-' + pageId);
+            if(activeLink) activeLink.classList.add('active');
+            
+            // 5. Scroll arriba y actualización de padding
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(updateContentPadding, 50);
+
+            // 6. Actualizar el hash en la URL (para que el botón Atrás funcione)
+            history.pushState(null, null, '#' + pageId);
+        }
+
+        // ================= LOGICA DEL ACORDEÓN DE SERVICIOS =================
+        function toggleService(serviceCard) {
+            // Cerrar todos los demás servicios
+            document.querySelectorAll('.service-card').forEach(card => {
+                if (card !== serviceCard) {
+                    card.classList.remove('active');
+                    const otherContent = card.querySelector('.service-content');
+                    if (otherContent) otherContent.classList.remove('active');
+                }
+            });
+            
+            // Toggle del servicio actual
+            serviceCard.classList.toggle('active');
+            const content = serviceCard.querySelector('.service-content');
+            if (content) {
+                content.classList.toggle('active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Manejar la carga inicial y el hash de la URL (ej: tudominio.com/#services)
+            const initialHash = window.location.hash.replace('#', '');
+            navigate(initialHash || 'home');
+            
+            // Manejar el botón 'Atrás' del navegador
+            window.addEventListener('popstate', () => {
+                const newHash = window.location.hash.replace('#', '');
+                // Navegar sin añadir al historial (porque ya se está retrocediendo)
+                navigate(newHash || 'home'); 
+            });
+
+            // Asignar event listeners a cada toggle
+            document.querySelectorAll('.service-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault(); // Previene cualquier comportamiento default
+                    e.stopPropagation();
+                    const serviceCard = this.closest('.service-card');
+                    if (serviceCard) {
+                        toggleService(serviceCard);
+                    }
+                });
+            });
+        });
+
+        window.addEventListener('resize', updateContentPadding);
+        window.addEventListener('load', updateContentPadding);
+        
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                setTimeout(updateContentPadding, 100);
+            }
+        });
     </script>
+
 </body>
 </html>
