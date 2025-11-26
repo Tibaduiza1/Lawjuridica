@@ -54,9 +54,13 @@
         }
 
         .section-header h2 {
-            font-size: 3rem;
+            font-size: clamp(1.8rem, 6vw, 3rem);
             margin-bottom: 1rem;
             color: white;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            line-height: 1.3;
         }
 
         .section-header .line {
@@ -173,15 +177,14 @@
 
         /* --- SISTEMA DE PÁGINAS (SPA) --- */
         .page-section {
-            display: none; /* Oculta todas las páginas por defecto */
+            display: none;
             animation: fadeIn 0.8s ease;
-            /* SE AUMENTA EL ESPACIO SUPERIOR (DESKTOP) */
-            padding-top: 140px; 
+            padding-top: 140px;
             min-height: 100vh;
         }
 
         .page-section.active {
-            display: block; /* Muestra solo la activa */
+            display: block;
         }
 
         @keyframes fadeIn {
@@ -191,8 +194,7 @@
 
         /* --- PÁGINA: INICIO (HOME) --- */
         .hero {
-            /* Restar el padding-top de .page-section para que el Hero se vea grande */
-            height: calc(100vh - 140px); 
+            height: calc(100vh - 140px);
             display: flex;
             align-items: center;
             position: relative;
@@ -212,49 +214,50 @@
             max-width: 700px;
         }
 
-        /* CORRECCIÓN: Reducción del tamaño base del H1 */
         .hero h1 {
-            font-size: 3.5rem; 
-            line-height: 1.1;
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            line-height: 1.2;
             margin-bottom: 1.5rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
-        
-        /* APLICAMOS LOS ESTILOS DE ENCUADRE AQUÍ */
+
         .trust-badges-container {
-            background: rgba(18, 18, 18, 0.9); /* Fondo oscuro semitransparente */
+            background: rgba(18, 18, 18, 0.9);
             border: 1px solid var(--gold-flat);
             padding: 1.5rem 2rem;
-            margin-top: 4rem; /* Espacio con el contenido superior */
+            margin-top: 4rem;
             border-radius: 5px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5); /* Sombra para darle profundidad */
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
         }
 
         .trust-badges {
             display: flex;
             gap: 2rem;
             text-align: center;
-            justify-content: space-between; /* Distribuye el espacio uniformemente */
+            justify-content: space-between;
         }
-        
+
         @media (max-width: 600px) {
-             .trust-badges {
+            .trust-badges {
                 flex-direction: column;
                 gap: 1.5rem;
                 align-items: center;
-             }
-             .trust-badges-container {
+            }
+            .trust-badges-container {
                 padding: 1.5rem;
-             }
+            }
         }
 
         .badge {
-            flex: 1; /* Permite que cada badge ocupe el mismo espacio */
+            flex: 1;
             padding: 0 1rem;
         }
 
         .badge h3 { 
             color: var(--gold-flat); 
-            font-size: 2.5rem; /* Aumento para darles más importancia */
+            font-size: 2.5rem;
             margin-bottom: 0.2rem; 
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
@@ -276,14 +279,13 @@
             text-align: center;
             border-bottom: 3px solid var(--gold-flat);
         }
-        /* Ajuste específico para el page-header para compensar el padding de .page-section */
+
         #page-firm .page-header, 
         #page-services .page-header,
         #page-team .page-header,
         #page-contact .page-header {
-            margin-top: -140px; /* Sincronizado con el nuevo padding-top */
+            margin-top: -140px;
         }
-
 
         .split-layout {
             display: grid;
@@ -316,7 +318,6 @@
         .mvv-card:hover { border-color: var(--gold-flat); transform: translateY(-5px); }
         .mvv-card i { font-size: 2.5rem; color: var(--gold-flat); margin-bottom: 1rem; }
 
-        /* Garantía */
         .guarantee-box {
             background: linear-gradient(45deg, #111, #1a1a1a);
             padding: 4rem;
@@ -389,14 +390,13 @@
             filter: grayscale(100%);
             transition: 0.5s;
         }
-        
+
         .lawyer-card:hover .lawyer-img { filter: grayscale(0%); }
 
         .lawyer-info { padding: 1.5rem; text-align: center; }
         .lawyer-info h3 { color: white; margin-bottom: 0.5rem; }
         .lawyer-info p { color: var(--gold-flat); font-size: 0.9rem; text-transform: uppercase; }
 
-        /* Clientes Logos */
         .clients-strip {
             background: #0a0a0a;
             padding: 3rem 0;
@@ -413,7 +413,6 @@
         }
         .client-placeholder:hover { color: var(--gold-flat); text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
 
-        /* Testimonios Detallados */
         .testimonial-grid-full {
             display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem;
         }
@@ -429,7 +428,7 @@
         /* --- PÁGINA: CONTACTO --- */
         .contact-layout {
             display: grid;
-            grid-template-columns: 1fr; /* Cambiado a una sola columna */
+            grid-template-columns: 1fr;
             gap: 0;
             min-height: 80vh;
         }
@@ -439,11 +438,10 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center; /* Centrar contenido */
-            text-align: center; /* Centrar texto */
+            align-items: center;
+            text-align: center;
         }
-        
-        /* NUEVO ESTILO PARA ENLACES DE CONTACTO */
+
         .contact-links {
             display: flex;
             flex-direction: column;
@@ -452,7 +450,7 @@
             width: 100%;
             max-width: 500px;
         }
-        
+
         .contact-link-item {
             background: rgba(0,0,0,0.3);
             padding: 1.5rem;
@@ -460,13 +458,13 @@
             border-radius: 5px;
             transition: all 0.3s ease;
         }
-        
+
         .contact-link-item:hover {
             border-color: var(--gold-flat);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
         }
-        
+
         .contact-link-item a {
             color: var(--text-white);
             text-decoration: none;
@@ -475,17 +473,17 @@
             gap: 1rem;
             font-size: 1.1rem;
         }
-        
+
         .contact-link-item a:hover {
             color: var(--gold-flat);
         }
-        
+
         .contact-link-item i {
             font-size: 1.8rem;
             color: var(--gold-flat);
             min-width: 30px;
         }
-        
+
         .contact-info h2 {
             color: white;
             font-size: 2.5rem;
@@ -527,9 +525,8 @@
 
         /* Responsive */
         @media (max-width: 900px) {
-            /* Ajuste de padding para móviles */
             .page-section {
-                padding-top: 110px; /* Menos espacio en pantallas pequeñas, aumentado por seguridad */
+                padding-top: 110px;
             }
             .hero {
                 height: calc(100vh - 110px);
@@ -549,14 +546,12 @@
             .menu { gap: 1rem; font-size: 0.8rem; flex-wrap: wrap; justify-content: center; }
             .page-header { padding: 6rem 0 2rem; }
             .hero h1 { 
-                font-size: 2.5rem; /* Reducción de tamaño para móviles */
+                font-size: 2.5rem;
             }
-            /* Centrar los badges en móvil */
             .trust-badges {
                 justify-content: center;
             }
             
-            /* Ajustes para contacto en móvil */
             .contact-info {
                 padding: 3rem 2rem;
             }
@@ -567,6 +562,32 @@
             
             .contact-link-item a {
                 font-size: 1rem;
+            }
+        }
+
+        /* NUEVA MEDIA QUERY PARA MÓVILES PEQUEÑOS */
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem !important;
+                line-height: 1.3;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem !important;
+                line-height: 1.4;
+            }
+            
+            .trust-badges-container {
+                margin-top: 2rem !important;
+                padding: 1rem !important;
+            }
+            
+            .badge h3 {
+                font-size: 2rem !important;
             }
         }
     </style>
@@ -735,42 +756,43 @@
                     <i class="fas fa-gavel"></i>
                     <h3>Derecho Comercial y Societario</h3>
                     <p style="color: #999; margin-bottom: 1rem;">Asesoría estratégica en la creación, transformación y operación de sociedades conforme al Código de Comercio y las normas de la Superintendencia de Sociedades. Incluye constitución de empresas, elaboración de estatutos, reformas societarias, acuerdos entre socios, insolvencia empresarial y resolución de conflictos comerciales. LAW Jurídica combina visión empresarial con análisis jurídico para acompañar decisiones clave y mitigar riesgos corporativos.</p>
-                    <a href="#" style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem;"> &rarr;</a>
+                    <a href="https://wa.me/+573107814087?text=Hola,%20quiero%20información%20sobre%20Derecho%20Comercial%20y%20Societario"style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem;"target="_blank"rel="noopener noreferrer">Más información &rarr;</a>
                 </div>
                 <!-- Servicio 2 -->
                 <div class="service-card">
                     <i class="fas fa-building"></i>
                     <h3>Administración de Propiedad Horizontal</h3>
                     <p style="color: #999; margin-bottom: 1rem;">Acompañamiento jurídico especializado a conjuntos y edificios bajo la Ley 675 de 2001, incluyendo revisión y actualización de reglamentos de propiedad horizontal, asesoría al consejo de administración, gestión de conflictos entre copropietarios, cobro de cuotas de administración y soporte jurídico para la toma de decisiones estratégicas. LAW Jurídica respalda a administradores y cuerpos directivos para garantizar orden, transparencia y cumplimiento normativo en la vida comunitaria.</p>
-                    <a href="#" style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem;"> &rarr;</a>
+                    <a href="https://wa.me/+573107814087?text=Hola,%20quiero%20información%20sobre%20Propiedad%20Horizontal"style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem;"target="_blank"rel="noopener noreferrer">Más información &rarr;</a>
                 </div>
                 <!-- Servicio 3 -->
                 <div class="service-card">
                     <i class="fas fa-landmark"></i>
                     <h3>Derecho Inmobiliario</h3>
                     <p style="color: #999; margin-bottom: 1rem;">Asesoría legal completa en transacciones y litigios inmobiliarios: compraventas, promesas de contrato, arrendamientos, saneamiento de títulos, estudio de tradición, procesos de pertenencia y conflictos sobre tenencia y propiedad. Nuestra experiencia, sumada al origen inmobiliario de la firma (Vivesbien Inmobiliaria), permite ofrecer un acompañamiento sólido, preciso y orientado a proteger el patrimonio de nuestros clientes.</p>
-                    <a href="#" style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem;"> &rarr;</a>
+                    <a href="https://wa.me/+573107814087?text=Hola,%20quiero%20información%20sobre%20Derecho%20Inmobiliario"style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem;"target="_blank"rel="noopener noreferrer">Más información &rarr;</a>
                 </div>
                 <!-- Servicio 4 -->
                 <div class="service-card">
                     <i class="fas fa-file-contract"></i>
                     <h3>Derecho Civil</h3>
                     <p style="color: #999; margin-bottom: 1rem;">Asesoría en la prevención y resolución de conflictos derivados de obligaciones, contratos, responsabilidad civil, posesión y tenencia de bienes, de acuerdo con el Código Civil y normas complementarias. Representamos a nuestros clientes en procesos declarativos, ejecutivos y de responsabilidad, con estrategias basadas en análisis documental riguroso y atención directa de nuestros socios.</p>
-                    <a href="#" style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem;"> &rarr;</a>
+                    <a href="https://wa.me/+573107814087?text=Hola,%20quiero%20información%20sobre%20Derecho%20Civil"style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem;"target="_blank"rel="noopener noreferrer">Más información &rarr;</a>
                 </div>
                 <!-- Servicio 5 -->
                 <div class="service-card">
                     <i class="fas fa-users"></i>
                     <h3>Derecho de Familia</h3>
                     <p style="color: #999; margin-bottom: 1rem;">Acompañamiento humano y técnico en procesos como divorcios, custodia, fijación de alimentos, regulación de visitas, uniones maritales de hecho, capitulaciones y sucesiones. Actuamos ante comisarías, notarías y juzgados, asegurando que cada caso se gestione con sensibilidad, claridad y estricta observancia de los principios del Código de Infancia y Adolescencia, el Código Civil y las normas de derecho de familia vigentes.</p>
-                    <a href="#" style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem;"> &rarr;</a>
+                    <a href="https://wa.me/+573107814087?text=Hola,%20quiero%20información%20sobre%20Derecho%20de%20Familia"style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem;"target="_blank"rel="noopener noreferrer">Más información &rarr;</a>
                 </div>
                 <!-- Servicio 6 -->
                 <div class="service-card">
                     <i class="fas fa-copyright"></i>
                     <h3>Recuperación de Cartera</h3>
                     <p style="color: #999; margin-bottom: 1rem;">Gestión jurídica integral para la recuperación de obligaciones en mora, desde la fase prejurídica (persuasiva) hasta la ejecución de procesos ejecutivos conforme al Código General del Proceso. LAW Jurídica implementa estrategias personalizadas que combinan análisis documental, negociación efectiva y acciones judiciales para reducir la cartera vencida y proteger la estabilidad financiera de empresas y conjuntos residenciales. Más de 120 procesos anuales respaldan nuestra experiencia.</p>
-                    <a href="#" style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem;">Más información &rarr;</a>
+                    <a href="https://wa.me/+573107814087?text=Hola,%20quiero%20información%20sobre%20Recuperación%20de%20Cartera"style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem;"target="_blank"rel="noopener noreferrer">Más información &rarr;</a>
+                    
                 </div>
             </div>
 
@@ -1053,13 +1075,4 @@
     </script>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
