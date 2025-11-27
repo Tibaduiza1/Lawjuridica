@@ -13,10 +13,10 @@
     <title>LAW JURÍDICA | Firma Legal</title>
     
     <!-- Fuentes: Montserrat (Cuerpo) y Playfair Display (Títulos) -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300 ;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
     
     <style>
         /* --- VARIABLES DE DISEÑO (DARK LUXURY) --- */
@@ -208,7 +208,7 @@
             display: flex;
             align-items: center;
             position: relative;
-            background: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            background: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80 ') no-repeat center center/cover;
             padding: 4rem 0;
         }
 
@@ -304,7 +304,7 @@
 
         /* --- PÁGINA: LA FIRMA --- */
         .page-header {
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80 ');
             background-size: cover;
             background-position: center;
             padding: 8rem 0 4rem;
@@ -529,11 +529,18 @@
             padding: 3rem 0;
             border-top: 1px solid #222;
             border-bottom: 1px solid #222;
+            overflow: hidden; /* Previene scroll horizontal */
         }
+
+        /* ================= SOLUCIÓN PARA NOMBRES DE CLIENTES ================= */
         .clients-grid {
-            display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem;
-            align-items: center; justify-items: center;
+            display: grid;
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+            grid-template-columns: repeat(5, minmax(120px, 1fr));
         }
+
         .client-placeholder {
             font-weight: bold;
             font-size: 1.2rem;
@@ -542,13 +549,53 @@
             transition: 0.3s;
             cursor: pointer;
             text-decoration: none;
-            display: inline-block;
+            display: block; /* Cambiado de inline-block a block */
+            width: 100%;
+            text-align: center;
             word-break: break-word;
             overflow-wrap: anywhere;
+            -webkit-hyphens: auto;
+            hyphens: auto;
+            line-height: 1.3;
+            padding: 0.5rem;
+            box-sizing: border-box;
         }
+
         .client-placeholder:hover { 
             color: var(--gold-flat);
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Media Queries específicas para clientes */
+        @media (max-width: 768px) {
+            .clients-grid {
+                grid-template-columns: repeat(3, minmax(100px, 1fr)) !important;
+            }
+            .client-placeholder {
+                font-size: 1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .clients-grid {
+                grid-template-columns: repeat(2, minmax(90px, 1fr)) !important;
+                gap: 1rem !important;
+            }
+            .client-placeholder {
+                font-size: 0.9rem !important;
+                letter-spacing: 0.5px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .clients-grid {
+                grid-template-columns: 1fr !important;
+                max-width: 180px;
+                margin: 0 auto;
+            }
+            .client-placeholder {
+                font-size: 1rem !important;
+            }
         }
 
         .testimonial-grid-full {
@@ -918,7 +965,7 @@
                         <p style="color: #999; margin-bottom: 1rem;">
                             Asesoría estratégica en la creación, transformación y operación de sociedades conforme al Código de Comercio y las normas de la Superintendencia de Sociedades. Incluye constitución de empresas, elaboración de estatutos, reformas societarias, acuerdos entre socios, insolvencia empresarial y resolución de conflictos comerciales. LAW Jurídica combina visión empresarial con análisis jurídico para acompañar decisiones clave y mitigar riesgos corporativos.
                         </p>
-                        <a href="https://wa.me/+573126411227?text=Hola,%20quiero%20información%20sobre%20Derecho%20Comercial%20y%20Societario" 
+                        <a href="https://wa.me/+573126411227?text=Hola ,%20quiero%20información%20sobre%20Derecho%20Comercial%20y%20Societario" 
                            style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem; font-weight: 600;" 
                            target="_blank" rel="noopener noreferrer">
                             Más información →
@@ -937,7 +984,7 @@
                         <p style="color: #999; margin-bottom: 1rem;">
                             Acompañamiento jurídico especializado a conjuntos y edificios bajo la Ley 675 de 2001, incluyendo revisión y actualización de reglamentos de propiedad horizontal, asesoría al consejo de administración, gestión de conflictos entre copropietarios, cobro de cuotas de administración y soporte jurídico para la toma de decisiones estratégicas. LAW Jurídica respalda a administradores y cuerpos directivos para garantizar orden, transparencia y cumplimiento normativo en la vida comunitaria.
                         </p>
-                        <a href="https://wa.me/+573126411227?text=Hola,%20quiero%20información%20sobre%20Propiedad%20Horizontal" 
+                        <a href="https://wa.me/+573126411227?text=Hola ,%20quiero%20información%20sobre%20Propiedad%20Horizontal" 
                            style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem; font-weight: 600;" 
                            target="_blank" rel="noopener noreferrer">
                             Más información →
@@ -956,7 +1003,7 @@
                         <p style="color: #999; margin-bottom: 1rem;">
                             Asesoría legal completa en transacciones y litigios inmobiliarios: compraventas, promesas de contrato, arrendamientos, saneamiento de títulos, estudio de tradición, procesos de pertenencia y conflictos sobre tenencia y propiedad. Nuestra experiencia, sumada al origen inmobiliario de la firma (Vivesbien Inmobiliaria), permite ofrecer un acompañamiento sólido, preciso y orientado a proteger el patrimonio de nuestros clientes.
                         </p>
-                        <a href="https://wa.me/+573126411227?text=Hola,%20quiero%20información%20sobre%20Derecho%20Inmobiliario" 
+                        <a href="https://wa.me/+573126411227?text=Hola ,%20quiero%20información%20sobre%20Derecho%20Inmobiliario" 
                            style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem; font-weight: 600;" 
                            target="_blank" rel="noopener noreferrer">
                             Más información →
@@ -975,7 +1022,7 @@
                         <p style="color: #999; margin-bottom: 1rem;">
                             Asesoría en la prevención y resolución de conflictos derivados de obligaciones, contratos, responsabilidad civil, posesión y tenencia de bienes, de acuerdo con el Código Civil y normas complementarias. Representamos a nuestros clientes en procesos declarativos, ejecutivos y de responsabilidad, con estrategias basadas en análisis documental riguroso y atención directa de nuestros socios.
                         </p>
-                        <a href="https://wa.me/+573126411227?text=Hola,%20quiero%20información%20sobre%20Derecho%20Civil" 
+                        <a href="https://wa.me/+573126411227?text=Hola ,%20quiero%20información%20sobre%20Derecho%20Civil" 
                            style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem; font-weight: 600;" 
                            target="_blank" rel="noopener noreferrer">
                             Más información →
@@ -994,7 +1041,7 @@
                         <p style="color: #999; margin-bottom: 1rem;">
                             Acompañamiento humano y técnico en procesos como divorcios, custodia, fijación de alimentos, regulación de visitas, uniones maritales de hecho, capitulaciones y sucesiones. Actuamos ante comisarías, notarías y juzgados, asegurando que cada caso se gestione con sensibilidad, claridad y estricta observancia de los principios del Código de Infancia y Adolescencia, el Código Civil y las normas de derecho de familia vigentes.
                         </p>
-                        <a href="https://wa.me/+573126411227?text=Hola,%20quiero%20información%20sobre%20Derecho%20de%20Familia" 
+                        <a href="https://wa.me/+573126411227?text=Hola ,%20quiero%20información%20sobre%20Derecho%20de%20Familia" 
                            style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem; font-weight: 600;" 
                            target="_blank" rel="noopener noreferrer">
                             Más información →
@@ -1013,7 +1060,7 @@
                         <p style="color: #999; margin-bottom: 1rem;">
                             Gestión jurídica integral para la recuperación de obligaciones en mora, desde la fase prejurídica (persuasiva) hasta la ejecución de procesos ejecutivos conforme al Código General del Proceso. LAW Jurídica implementa estrategias personalizadas que combinan análisis documental, negociación efectiva y acciones judiciales para reducir la cartera vencida y proteger la estabilidad financiera de empresas y conjuntos residenciales. Más de 120 procesos anuales respaldan nuestra experiencia.
                         </p>
-                        <a href="https://wa.me/+573126411227?text=Hola,%20quiero%20información%20sobre%20Recuperación%20de%20Cartera" 
+                        <a href="https://wa.me/+573126411227?text=Hola ,%20quiero%20información%20sobre%20Recuperación%20de%20Cartera" 
                            style="color: var(--gold-flat); text-decoration: none; font-size: 0.9rem; font-weight: 600;" 
                            target="_blank" rel="noopener noreferrer">
                             Más información →
@@ -1071,7 +1118,7 @@
                     </div>
                 </div>
                 <div class="lawyer-card">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Abogada" class="lawyer-img">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg " alt="Abogada" class="lawyer-img">
                     <div class="lawyer-info">
                         <h3>Dra. Claudia Vega</h3>
                         <p>Socia Fundadora</p>
@@ -1079,7 +1126,7 @@
                     </div>
                 </div>
                 <div class="lawyer-card">
-                    <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Abogado" class="lawyer-img">
+                    <img src="https://randomuser.me/api/portraits/men/85.jpg " alt="Abogado" class="lawyer-img">
                     <div class="lawyer-info">
                         <h3>Dr. Jorge Ramírez</h3>
                         <p>Otro Cargo</p>
@@ -1097,23 +1144,23 @@
                     <p>Algunos de nuestros clientes corporativos.</p>
                 </div>
                 <div class="clients-grid">
-                    <a href="https://www.grupoexito.com.co" target="_blank" class="client-placeholder">
+                    <a href="https://www.grupoexito.com.co " target="_blank" class="client-placeholder">
                         GRUPO ÉXITO
                     </a>
 
-                    <a href="https://www.ecopetrol.com.co" target="_blank" class="client-placeholder">
+                    <a href="https://www.ecopetrol.com.co " target="_blank" class="client-placeholder">
                         ECOPETROL
                     </a>
 
-                    <a href="https://www.bancolombia.com" target="_blank" class="client-placeholder">
+                    <a href="https://www.bancolombia.com " target="_blank" class="client-placeholder">
                         BANCOLOMBIA
                     </a>
 
-                    <a href="https://www.argos.co" target="_blank" class="client-placeholder">
+                    <a href="https://www.argos.co " target="_blank" class="client-placeholder">
                         ARGOS
                     </a>
 
-                    <a href="https://www.bavaria.co" target="_blank" class="client-placeholder">
+                    <a href="https://www.bavaria.co " target="_blank" class="client-placeholder">
                         BAVARIA
                     </a>
                 </div>
@@ -1194,7 +1241,7 @@
                             <i class="fab fa-whatsapp"></i> WhatsApp Corporativo
                         </h4>
                         <p>
-                            <a href="https://wa.me/573126411227?text=Hola,%20me%20gustaría%20agendar%20una%20consulta%20jurídica" 
+                            <a href="https://wa.me/573126411227?text=Hola ,%20me%20gustaría%20agendar%20una%20consulta%20jurídica" 
                                target="_blank" 
                                style="color: #25D366; font-weight: 600;">
                                 +57 312 641 1227 (Click para escribir)
@@ -1224,7 +1271,7 @@
                     <p style="color: #ccc; margin-bottom: 1.5rem; font-style: italic;">
                         "Para consultas urgentes, recomendamos contactarnos directamente por WhatsApp o llamada telefónica."
                     </p>
-                    <a href="https://wa.me/573126411227?text=Hola,%20me%20gustaría%20agendar%20una%20consulta%20jurídica" 
+                    <a href="https://wa.me/573126411227?text=Hola ,%20me%20gustaría%20agendar%20una%20consulta%20jurídica" 
                        target="_blank" 
                        class="btn-gold">
                         <i class="fab fa-whatsapp" style="margin-right: 10px;"></i>
@@ -1257,11 +1304,11 @@
                 <div class="footer-links">
                     <h4>Redes Sociales</h4>
                     <ul>
-                        <li><a href="https://www.instagram.com/law_juridica" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" style="margin-right: 8px;"></i> Instagram</a></li>
-                        <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" style="margin-right: 8px;"></i> Facebook</a></li>
-                        <li><a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" style="margin-right: 8px;"></i> TikTok</a></li>
-                        <li><a href="https://wa.me/573126411227" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="margin-right: 8px;"></i> WhatsApp</a></li>
-                        <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" style="margin-right: 8px;"></i> LinkedIn</a></li>
+                        <li><a href="https://www.instagram.com/law_juridica " target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" style="margin-right: 8px;"></i> Instagram</a></li>
+                        <li><a href="https://www.facebook.com " target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" style="margin-right: 8px;"></i> Facebook</a></li>
+                        <li><a href="https://www.tiktok.com " target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" style="margin-right: 8px;"></i> TikTok</a></li>
+                        <li><a href="https://wa.me/573126411227 " target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="margin-right: 8px;"></i> WhatsApp</a></li>
+                        <li><a href="https://www.linkedin.com " target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" style="margin-right: 8px;"></i> LinkedIn</a></li>
                     </ul>
                 </div>
             </div>
@@ -1272,7 +1319,7 @@
     </footer>
 
     <!-- Botón Flotante WhatsApp -->
-    <a href="https://wa.me/573126411227?text=Hola,%20me%20gustaría%20agendar%20una%20consulta%20jurídica" 
+    <a href="https://wa.me/573126411227?text=Hola ,%20me%20gustaría%20agendar%20una%20consulta%20jurídica" 
        target="_blank" 
        class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
