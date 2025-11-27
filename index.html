@@ -529,11 +529,18 @@
             padding: 3rem 0;
             border-top: 1px solid #222;
             border-bottom: 1px solid #222;
+            overflow: hidden; /* Previene scroll horizontal */
         }
+
+        /* ================= SOLUCIÓN PARA NOMBRES DE CLIENTES ================= */
         .clients-grid {
-            display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem;
-            align-items: center; justify-items: center;
+            display: grid;
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+            grid-template-columns: repeat(5, minmax(120px, 1fr));
         }
+
         .client-placeholder {
             font-weight: bold;
             font-size: 1.2rem;
@@ -542,13 +549,53 @@
             transition: 0.3s;
             cursor: pointer;
             text-decoration: none;
-            display: inline-block;
+            display: block; /* Cambiado de inline-block a block */
+            width: 100%;
+            text-align: center;
             word-break: break-word;
             overflow-wrap: anywhere;
+            -webkit-hyphens: auto;
+            hyphens: auto;
+            line-height: 1.3;
+            padding: 0.5rem;
+            box-sizing: border-box;
         }
+
         .client-placeholder:hover { 
             color: var(--gold-flat);
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Media Queries específicas para clientes */
+        @media (max-width: 768px) {
+            .clients-grid {
+                grid-template-columns: repeat(3, minmax(100px, 1fr)) !important;
+            }
+            .client-placeholder {
+                font-size: 1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .clients-grid {
+                grid-template-columns: repeat(2, minmax(90px, 1fr)) !important;
+                gap: 1rem !important;
+            }
+            .client-placeholder {
+                font-size: 0.9rem !important;
+                letter-spacing: 0.5px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .clients-grid {
+                grid-template-columns: 1fr !important;
+                max-width: 180px;
+                margin: 0 auto;
+            }
+            .client-placeholder {
+                font-size: 1rem !important;
+            }
         }
 
         .testimonial-grid-full {
